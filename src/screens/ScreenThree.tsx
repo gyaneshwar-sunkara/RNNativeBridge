@@ -1,16 +1,20 @@
 import {Alert, Button, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {selectName} from '../app/slices/globalSlice';
 import {useAppSelector} from '../app/hooks';
 import CommonText from '../components/CommonText';
+import SwipeButton from '../components/SwipeButton';
 
 export default function ScreenThree() {
   const name = useAppSelector(selectName);
 
+  const [toggleState, setToggleState] = useState(false);
+
+  const handleToggle = (value: boolean) => setToggleState(value);
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
       <CommonText
-        text={`${name}, Try out the following buttons`}
+        text={`Try out the following buttons ${name}`}
         color="white"
       />
       <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
@@ -25,7 +29,6 @@ export default function ScreenThree() {
             Press me
           </Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           activeOpacity={0.8}
           style={{padding: 5}}
@@ -36,7 +39,6 @@ export default function ScreenThree() {
             </Text>
           </View>
         </TouchableOpacity>
-
         <TouchableOpacity
           activeOpacity={0.8}
           style={{padding: 5}}
@@ -47,15 +49,7 @@ export default function ScreenThree() {
             </Text>
           </View>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={{padding: 5}}
-          onPress={() => Alert.alert('Button Four')}>
-          <Text style={{color: '#59bfff', textAlign: 'center', margin: 15}}>
-            Slide me to continue
-          </Text>
-        </TouchableOpacity>
+        <SwipeButton onToggle={handleToggle} />
       </View>
     </View>
   );

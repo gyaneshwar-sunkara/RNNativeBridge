@@ -9,7 +9,7 @@ interface props {
 export default function CommonText({text, color}: props) {
   return (
     <View>
-      <Text style={[styles.text, {color: color}]}>{text}</Text>
+      <Text style={[styles.text, {color: color || 'black'}]}>{text}</Text>
     </View>
   );
 }
