@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     margin: 10,
-    color: 'white',
+    color: '#59bfff',
     textAlign: 'center',
   },
 });

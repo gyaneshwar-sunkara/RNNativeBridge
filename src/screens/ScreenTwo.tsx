@@ -1,4 +1,4 @@
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, SafeAreaView} from 'react-native';
 import React from 'react';
 import {selectName} from '../app/slices/globalSlice';
 import {useAppSelector} from '../app/hooks';
@@ -8,9 +8,9 @@ export default function ScreenTwo() {
   const name = useAppSelector(selectName);
 
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <CommonText text={`Have a good day ${name}`} />
-    </View>
+    </SafeAreaView>
   );
 }
 

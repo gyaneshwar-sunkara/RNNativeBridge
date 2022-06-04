@@ -12,6 +12,7 @@ import React, {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {selectName, setName} from '../app/slices/globalSlice';
 import CommonText from '../components/CommonText';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const {EmuCheck} = NativeModules;
 
@@ -28,7 +29,7 @@ export default function ScreenOne() {
   }, []);
 
   return (
-    <View>
+    <SafeAreaView>
       <CommonText text={`Hello ${name}`} />
       <TextInput
         style={styles.input}
@@ -58,7 +59,7 @@ export default function ScreenOne() {
           </View>
         </Modal>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

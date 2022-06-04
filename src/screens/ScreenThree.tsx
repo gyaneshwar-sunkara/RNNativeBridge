@@ -1,4 +1,11 @@
-import {Alert, Button, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {selectName} from '../app/slices/globalSlice';
 import {useAppSelector} from '../app/hooks';
@@ -12,7 +19,7 @@ export default function ScreenThree() {
 
   const handleToggle = (value: boolean) => setToggleState(value);
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
       <CommonText
         text={`Try out the following buttons ${name}`}
         color="white"
@@ -51,6 +58,6 @@ export default function ScreenThree() {
         </TouchableOpacity>
         <SwipeButton onToggle={handleToggle} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
